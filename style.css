@@ -1,0 +1,33 @@
+body {
+    background-color: #f8f9fa;
+    font-family: "Segoe UI", sans-serif;
+  }
+  
+  h2, h4 {
+    color: #333;
+  }
+  
+  table img {
+    width: 60px;
+    height: auto;
+    object-fit: contain;
+  }
+  
+  textarea {
+    resize: vertical;
+  }
+  
+  .whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    width: 55px;
+    height: 55px;
+  }
+  
+  h2.text-success {
+    font-family: 'Segoe UI', sans-serif;
+    letter-spacing: 1px;
+  }
+  

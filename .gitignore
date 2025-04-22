@@ -1,0 +1,26 @@
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Node (if you ever add tooling)
+node_modules/
+
+# Logs
+*.log
+
+# IDE / Editor folders
+.vscode/
+.idea/
+
+# Environment files
+.env
+
+# Swap files
+*.swp
+
+# Python caches (if you ever use python scripts)
+__pycache__/
