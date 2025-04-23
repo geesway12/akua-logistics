@@ -23,11 +23,12 @@ export function openDB() {
   });
 }
 
+// now uses put() so that passing an { id: … } will update
 export function saveItem(item) {
   return new Promise((resolve, reject) => {
     const tx = db.transaction(STORE_NAME, 'readwrite');
     const store = tx.objectStore(STORE_NAME);
-    store.add(item);
+    store.put(item);
     tx.oncomplete = () => resolve();
     tx.onerror    = () => reject(tx.error);
   });

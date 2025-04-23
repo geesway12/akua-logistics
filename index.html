@@ -18,12 +18,15 @@
     </div>
 
     <form id="itemForm" class="row g-3">
+      <!-- hidden field to track editing -->
+      <input type="hidden" id="itemId">
+
       <div class="col-md-6">
         <label for="itemName" class="form-label">Item Name</label>
         <input type="text" id="itemName" class="form-control" required>
       </div>
       <div class="col-md-6">
-        <label for="itemImages" class="form-label">Item Images (max 5)</label>
+        <label for="itemImages" class="form-label">Item Images (max 5)</label>
         <input type="file" id="itemImages" class="form-control" accept="image/*" multiple>
       </div>
       <div class="col-md-12">
@@ -50,7 +53,7 @@
       </div>
 
       <div class="col-md-4">
-        <label for="usdPerCbm" class="form-label">Shipping Rate (USD/CBM)</label>
+        <label for="usdPerCbm" class="form-label">Shipping Rate (USD/CBM)</label>
         <input type="number" id="usdPerCbm" class="form-control" step="0.01" required>
       </div>
       <div class="col-md-4">
@@ -59,16 +62,17 @@
       </div>
 
       <div class="col-md-2">
-        <label for="commissionPercent" class="form-label">Commission (%)</label>
+        <label for="commissionPercent" class="form-label">Commission (%)</label>
         <input type="number" id="commissionPercent" class="form-control" required>
       </div>
       <div class="col-md-2">
-        <label for="profitPercent" class="form-label">Profit (%)</label>
+        <label for="profitPercent" class="form-label">Profit (%)</label>
         <input type="number" id="profitPercent" class="form-control" required>
       </div>
 
       <div class="col-12 text-end">
-        <button type="submit" class="btn btn-primary">Add Item</button>
+        <!-- give the button an ID so we can swap its text -->
+        <button type="submit" id="submitBtn" class="btn btn-primary">Add Item</button>
       </div>
     </form>
 
@@ -84,15 +88,15 @@
             <th>Images</th>
             <th>Item</th>
             <th>Description</th>
-            <th>Cost (RMB)</th>
-            <th>Cost (GHS)</th>
+            <th>Cost (RMB)</th>
+            <th>Cost (GHS)</th>
             <th>CBM</th>
-            <th>Shipping (GHS)</th>
-            <th>Comm (%)</th>
-            <th>Comm (GHS)</th>
-            <th>Profit (%)</th>
-            <th>Profit (GHS)</th>
-            <th>Sales Price (GHS)</th>
+            <th>Shipping (GHS)</th>
+            <th>Comm (%)</th>
+            <th>Comm (GHS)</th>
+            <th>Profit (%)</th>
+            <th>Profit (GHS)</th>
+            <th>Sales Price (GHS)</th>
             <th>Action</th>
           </tr>
         </thead>
