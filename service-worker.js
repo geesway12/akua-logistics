@@ -1,4 +1,4 @@
-const CACHE_NAME = 'akua-logistics-cache-v1';
+const CACHE_NAME = 'akua-logistics-cache-v2';
 const urlsToCache = [
   'index.html',
   'shop.html',
