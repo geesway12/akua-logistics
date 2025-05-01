@@ -17,16 +17,16 @@ export function openDB() {
     req.onupgradeneeded = e => {
       db = e.target.result;
       if (!db.objectStoreNames.contains(STORE_NAME)) {
-        db.createObjectStore(STORE_NAME, { keyPath:'id', autoIncrement:true });
+        db.createObjectStore(STORE_NAME, { keyPath: 'id', autoIncrement: true });
       }
     };
   });
 }
 
-// now uses put() so that passing an { id: … } will update
+// put() = insert or update (id present ➜ update)
 export function saveItem(item) {
   return new Promise((resolve, reject) => {
-    const tx = db.transaction(STORE_NAME, 'readwrite');
+    const tx    = db.transaction(STORE_NAME, 'readwrite');
     const store = tx.objectStore(STORE_NAME);
     store.put(item);
     tx.oncomplete = () => resolve();
@@ -36,9 +36,9 @@ export function saveItem(item) {
 
 export function getAllItems() {
   return new Promise((resolve, reject) => {
-    const tx = db.transaction(STORE_NAME, 'readonly');
+    const tx    = db.transaction(STORE_NAME, 'readonly');
     const store = tx.objectStore(STORE_NAME);
-    const req = store.getAll();
+    const req   = store.getAll();
     req.onsuccess = () => resolve(req.result);
     req.onerror   = () => reject(req.error);
   });
@@ -46,7 +46,7 @@ export function getAllItems() {
 
 export function deleteItem(id) {
   return new Promise((resolve, reject) => {
-    const tx = db.transaction(STORE_NAME, 'readwrite');
+    const tx    = db.transaction(STORE_NAME, 'readwrite');
     const store = tx.objectStore(STORE_NAME);
     store.delete(id);
     tx.oncomplete = () => resolve();
